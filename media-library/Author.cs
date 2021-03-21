@@ -10,13 +10,9 @@ namespace media_library
     {
         public String Name { get; set; }
 
-        public int Age { get; set; }
-
-        public String Mail { get; set; }
-
         public override string ToString()
         {
-            return Name + ", " + Age;
+            return Name;
         }
     }
 }

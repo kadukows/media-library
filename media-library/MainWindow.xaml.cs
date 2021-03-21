@@ -21,42 +21,22 @@ namespace media_library
     /// </summary>
     public partial class MainWindow : Window
     {
-        private ObservableCollection<Song> items;
+        private IStorage storage;
 
-        private readonly Author author = new Author() { Name = "Arthur Dent", Age = 44, Mail = "arthur@dent.com" };
-        private readonly String dir = "/path/to/song";
-
-        private Song MakeSong(String title)
-        {
-            return new Song() { Title = title, Directory = dir, SongAuthor = author };
-        }
         public MainWindow()
         {
             InitializeComponent();
-        
-            items = new ObservableCollection<Song>();
-            var titles = new List<String>() { "test & recognize", "generic pop song title", "общее название популярной песни # 2＃2" };
-            
-            foreach (var title in titles)
-            {
-                items.Add(MakeSong(title));
-            }
 
-            lvDataBinding.ItemsSource = items;
+            storage = new RuntimeMockStorage();
+
+            song_list_view.ItemsSource = storage.GetSongs();
         }
 
         private void button_remove_Click(object sender, RoutedEventArgs e)
         {
-            var item = (Song)lvDataBinding.SelectedItem;
 
-            if (item != null)
-            {   
-                items.Remove(item);
-            }
-            else
-            {
-                Console.Out.WriteLine("No item selected");
-            }
         }
+
+
     }
 }

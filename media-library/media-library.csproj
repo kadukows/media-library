@@ -57,6 +57,7 @@
     </ApplicationDefinition>
     <Compile Include="Author.cs" />
     <Compile Include="Song.cs" />
+    <Compile Include="Storage.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
