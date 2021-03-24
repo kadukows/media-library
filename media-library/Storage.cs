@@ -30,7 +30,7 @@ namespace media_library
             {
                 new Song() { Title = "lofi chill", Directory = dir, SongAuthor = author },
                 new Song() { Title = "generic pop song title", Directory = dir, SongAuthor = author },
-                new Song() { Title = "общее название популярной песни # 2", Directory = dir, SongAuthor = author}
+                new Song() { Title = "общее название популярной песни #2", Directory = dir, SongAuthor = author}
             };
         }
 
@@ -51,7 +51,7 @@ namespace media_library
 
         public void AddSong(Song song)
         {
-            if (authors.Contains(song.SongAuthor))
+            if (!authors.Contains(song.SongAuthor))
             {
                 throw new ArgumentException($"Song author {song.SongAuthor} is not among known authors");
             }

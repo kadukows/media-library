@@ -32,11 +32,18 @@ namespace media_library
             song_list_view.ItemsSource = storage.GetSongs();
         }
 
-        private void button_remove_Click(object sender, RoutedEventArgs e)
+        private void button_add_Click(object sender, RoutedEventArgs e)
         {
+            AddSongDialog dlg = new AddSongDialog(storage.GetAuthors());
+            dlg.Owner = this;
+            
+            Nullable<bool> result = dlg.ShowDialog();
 
+            if (result == true)
+            {
+                var song = new Song() { Title = dlg.SongTitle, SongAuthor = dlg.SongAuthor, Directory = dlg.Filename };
+                storage.AddSong(song);
+            }
         }
-
-
     }
 }

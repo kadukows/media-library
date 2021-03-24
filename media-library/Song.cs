@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace media_library
 {
-    class Song
+    public class Song
     {
         public String Title { get; set;  }
 

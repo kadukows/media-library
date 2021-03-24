@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace media_library
 {
-    class Author
+    public class Author
     {
         public String Name { get; set; }
 
